@@ -1,5 +1,5 @@
-export const fetchDataFromMeters = (meterId: number) => {
-      fetch('https://5e9ed3cdfb467500166c47bb.mockapi.io/api/v1/meter/')
+export const fetchDataFromMeters = async (meterId: number) => {
+      await fetch('https://5e9ed3cdfb467500166c47bb.mockapi.io/api/v1/meter/')
       .then(res => res.json())
       .then( data => console.log({
             pointOfDelivery : data[meterId - 1].pointOfDelivery,

@@ -9,8 +9,24 @@ function App() {
             fetchDataFromMeters(2);
       }, [])
 
+      const MetersDataDisplayer = () =>(
+            <div className="meters-data-div white">
+            </div>
+      )
+      
+
       return (
-            <h1>Ça marche !</h1>
+            <section className="app-container">
+                  <h1>Ma Consommation</h1>
+                  <div className="meters-data-container">
+                        <MetersDataDisplayer />
+                  </div>
+                  <div className="energy-data-container">
+                        <MetersDataDisplayer />
+                        <MetersDataDisplayer />
+                  </div>
+                  
+            </section>
       )
 }
 
