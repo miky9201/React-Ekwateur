@@ -20,7 +20,7 @@ const EnergyConsumption = ({ energyType, energyId } : { energyType: string, ener
 
       const [ gasConsumption, setGasConsumption ] = useState<gasConsumptionType[]>([]);
       const [ electricityConsumption, setElectricityConsumption ] = useState<electricityConsumptionType[]>([]);
-      const [ filterValue, setFilterValue ] = useState<string>("2019");
+      const [ filterValue, setFilterValue ] = useState<string>("0");
 
       useEffect(() => {
             async function getEnergyConsumption() {
@@ -57,17 +57,26 @@ const EnergyConsumption = ({ energyType, energyId } : { energyType: string, ener
 
       }, [energyId, energyType])
 
+      const filterGasByYear = gasConsumption.filter(item => (item.date.substr(0, 4) === filterValue))
+      const filterElectricityByYear = electricityConsumption.filter(item => (item.date.substr(0, 4) === filterValue))
+
       return (
             <div className="meters-data-div white">
                   <YearFilter filterValue={filterValue} setFilterValue={setFilterValue}/>
                   <ul>
-                        {energyId === 1 &&
-                              gasConsumption.filter(item => (item.date.substr(0, 4) === filterValue))
-                              .map( item => <li key={item.id}>Le {item.date}, à {item.time}, vous avez consommé {item.indexHigh} kwH de Gaz</li>)
-                        }
-                        {energyId === 2 &&
-                              electricityConsumption.filter(item => (item.date.substr(0, 4) === filterValue))
-                              .map( item => (    
+                        {energyId === 1 ? // Est ce que l'on est sur la page gaz ?
+                              filterValue !== "0" ?
+                              filterGasByYear.map( item => <li key={item.id}>Le {item.date}, à {item.time}, vous avez consommé {item.indexHigh} kwH de Gaz</li>)
+                              : gasConsumption.map( item => <li key={item.id}>Le {item.date}, à {item.time}, vous avez consommé {item.indexHigh} kwH de Gaz</li>)      
+                        : 
+                              filterValue !== "0" ?
+                              filterElectricityByYear.map( item => (    
+                                    <ul>
+                                          <li key={item.id}>Le {item.date}, à {item.time}, vous avez consommé {item.indexLow} kwH d'Électricité en heures creuses</li>
+                                          <li key={item.id}>Le {item.date}, à {item.time}, vous avez consommé {item.indexHigh} kwH d'Électricité en heures pleines</li>
+                                    </ul>
+                              ))
+                              : electricityConsumption.map( item => (    
                                     <ul>
                                           <li key={item.id}>Le {item.date}, à {item.time}, vous avez consommé {item.indexLow} kwH d'Électricité en heures creuses</li>
                                           <li key={item.id}>Le {item.date}, à {item.time}, vous avez consommé {item.indexHigh} kwH d'Électricité en heures pleines</li>
