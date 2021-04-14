@@ -2,6 +2,8 @@ import React, { useState, useEffect} from 'react';
 import './App.css';
 import MeterDataDisplayer from './components/MeterDataDisplayer';
 import EnergyConsumption from './components/EnergyConsumption';
+import EnergyContainer from './components/EnergyContainer';
+import EnergyToggleButton from './components/EnergyToggleButton';
 
 
 function App() {
@@ -20,6 +22,11 @@ function App() {
             electricityDate: "",
             electricityTime: ""
       })
+
+      const { gasPod, electricityPod } = energyPod
+      const { gasDate, gasTime, electricityDate, electricityTime } = energyDate
+      const [ showClickedEnergy, setShowClickedEnergy ] = useState<boolean>(false);
+      
 
       useEffect(() => {
 
@@ -44,18 +51,24 @@ function App() {
             getEnergyPods()
       }, [])
       
-      const { gasPod, electricityPod } = energyPod
-      const { gasDate, gasTime, electricityDate, electricityTime } = energyDate
 
       return (
             <section className="app-container">
                   <h1>Bonjour, Voici votre consommation : </h1>
+                  <EnergyToggleButton showClickedEnergy={showClickedEnergy} setShowClickedEnergy={setShowClickedEnergy}/>
                   <div className="meters-data-container">
-                        <MeterDataDisplayer meterTime={gasTime} meterDate={gasDate} energyType={gasPod} label="Gaz" />
-                        <EnergyConsumption />
-
-                        <MeterDataDisplayer meterTime={electricityTime} meterDate={electricityDate} energyType={electricityPod} label="Electricité" />
-                        <EnergyConsumption /> 
+                        {
+                              showClickedEnergy ?
+                                    <EnergyContainer>
+                                          <MeterDataDisplayer meterTime={electricityTime} meterDate={electricityDate} energyType={electricityPod} label="Electricité" />
+                                          <EnergyConsumption energyType={"electricity"} energyId={ELECTRICITY_ID} /> 
+                                    </EnergyContainer>
+                                    :
+                                    <EnergyContainer>
+                                          <MeterDataDisplayer meterTime={gasTime} meterDate={gasDate} energyType={gasPod} label="Gaz" />
+                                          <EnergyConsumption energyType={"gas"} energyId={GAS_ID}/>
+                                    </EnergyContainer>
+                        }
                   </div>
             </section>
       )
