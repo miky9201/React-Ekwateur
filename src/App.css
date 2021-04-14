@@ -8,14 +8,14 @@
 }
 
 .meters-data-container {
-      width: 30vw;
+      width: 80vw;
       display: flex;
       flex-direction: row;
       justify-content: center;
 }
 
 .energy-data-container {
-      width: 30vw;
+      width: 80vw;
       display: flex;
       flex-direction: row;
       justify-content: center;
