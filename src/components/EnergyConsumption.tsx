@@ -70,17 +70,19 @@ const EnergyConsumption = ({ energyType, energyId } : { energyType: string, ener
                               : gasConsumption.map( item => <li key={item.id}>Le {item.date}, à {item.time}, vous avez consommé {item.indexHigh} kwH de Gaz</li>)      
                         : 
                               filterValue !== "0" ?
-                              filterElectricityByYear.map( item => (    
-                                    <ul>
-                                          <li key={item.id}>Le {item.date}, à {item.time}, vous avez consommé {item.indexLow} kwH d'Électricité en heures creuses</li>
-                                          <li key={item.id}>Le {item.date}, à {item.time}, vous avez consommé {item.indexHigh} kwH d'Électricité en heures pleines</li>
-                                    </ul>
+                              filterElectricityByYear.map( item => (
+                                    <div key={item.id} className="array-line green">
+                                          <div>{item.date}, à {item.time}</div>
+                                          <div>Heure Creuse :  {item.indexLow}</div>
+                                          <div>Heure Pleine : {item.indexHigh}</div>
+                                    </div>
                               ))
-                              : electricityConsumption.map( item => (    
-                                    <ul>
-                                          <li key={item.id}>Le {item.date}, à {item.time}, vous avez consommé {item.indexLow} kwH d'Électricité en heures creuses</li>
-                                          <li key={item.id}>Le {item.date}, à {item.time}, vous avez consommé {item.indexHigh} kwH d'Électricité en heures pleines</li>
-                                    </ul>
+                              : electricityConsumption.map( item => (
+                                    <div key={item.id} className="array-line green">
+                                          <div className="soft-yellow">{item.date}, à {item.time}</div>
+                                          <div>Heure Creuse :  {item.indexLow}</div>
+                                          <div>Heure Pleine : {item.indexHigh}</div>
+                                    </div>  
                               ))
                         }
                   </ul>

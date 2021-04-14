@@ -1,3 +1,12 @@
+@font-face {
+      font-family: "Avenir";
+      src: url("./fonts/Avenir.ttf") format("truetype");
+     }
+
+* {
+      font-family: Avenir;
+}
+
 .app-container {
       background-image: url('./images/background.jpg');
       display: flex;
@@ -8,6 +17,10 @@
 }
 
 .energy-container {
+      border-radius: 16px;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 20px 0px;
+      margin: 10px;
+      padding: 10px;
       display: flex;
       flex-direction: column;
 }
@@ -28,7 +41,22 @@
 }
 
 .meters-data-div {
-      border: black solid 2px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+}
+
+.meters-data-div  p, .meters-data-div  h2 {
+      color: #fff;
+}
+
+.array-line {
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
 }
 
 /*COLORS */
