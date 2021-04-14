@@ -1,23 +1,14 @@
 import React from 'react';
 
-interface meterDataDisplayerProps {
-      [key: string]: {
-            [key: string]: string
-      }
-}
+const MeterDataDisplayer = ({ meterTime, meterDate, energyType, label } : { meterTime: string, meterDate: string, energyType: string, label: string }) => {
 
-interface electricityPodDataDisplayerProps extends meterDataDisplayerProps {
-      electricityPod 
-}
-
-const MeterDataDisplayer = ({energyPod} : meterDataDisplayerProps) => {
-      console.log(energyPod);
-      const gas = energyPod.gasPod
       return (
-            <div className="meters-data-div white">
-                  <p>POD Gaz : {gas}</p>
+            <div className="meters-data-div green">
+                  <p>{label} POD : {energyType}</p>
+                  <p>Date de création : {meterDate}</p>
+                  <p>Heure de création : {meterTime}</p>
             </div>
-      )
+            )
 }
 
 export default MeterDataDisplayer;
