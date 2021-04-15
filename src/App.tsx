@@ -5,6 +5,7 @@ import EnergyConsumption from './components/EnergyConsumption';
 import EnergyContainer from './components/EnergyContainer';
 import EnergyToggleButton from './components/EnergyToggleButton';
 import logo from './images/logo.svg'
+import { getEnergyPods } from './utils/getEnergyPods'
 
 
 function App() {
@@ -24,35 +25,15 @@ function App() {
             electricityTime: ""
       })
 
-      const { gasPod, electricityPod } = energyPod
-      const { gasDate, gasTime, electricityDate, electricityTime } = energyDate
+      const { gasPod, electricityPod } = energyPod;
+      const { gasDate, gasTime, electricityDate, electricityTime } = energyDate;
       const [ showClickedEnergy, setShowClickedEnergy ] = useState<boolean>(false);
       
 
       useEffect(() => {
-
-            async function getEnergyPods() {
-                  const response = await fetch('https://5e9ed3cdfb467500166c47bb.mockapi.io/api/v1/meter/');
-                  const data = await response.json();
-
-                  const podDatas = {
-                        gasPod: data[GAS_ID - 1].pointOfDelivery,
-                        electricityPod: data[ELECTRICITY_ID - 1].pointOfDelivery
-                  }
-                  setEnergyPod(podDatas);
-
-                  const metersCreationDate = {
-                        gasDate: data[GAS_ID - 1].createdAt.substr(0, 10),
-                        gasTime: data[GAS_ID - 1].createdAt.substr(11, 8),
-                        electricityDate: data[ELECTRICITY_ID - 1].createdAt.substr(0, 10),
-                        electricityTime: data[ELECTRICITY_ID - 1].createdAt.substr(11, 8)
-                  }
-                  setEnergyDate(metersCreationDate);
-            }
-            getEnergyPods()
+            getEnergyPods(GAS_ID, ELECTRICITY_ID, setEnergyPod, setEnergyDate )
       }, [])
       
-
       return (
             <section className="app-container">
                   <img id="logo"  src={logo} alt="logo"/>

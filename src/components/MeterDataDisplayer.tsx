@@ -1,14 +1,12 @@
 import React from 'react';
-import electricite from '../images/electricite.png'
-import gaz from '../images/gaz.png'
+import electricite from '../images/electricite.png';
+import gaz from '../images/gaz.png';
+import { reverseDate } from '../utils/reverseDate';
 
-const MeterDataDisplayer = ({ meterTime, meterDate, energyType, label } : { meterTime: string, meterDate: string, energyType: string, label: string }) => {
-      const reverseDate = (string: string): string => string.split('-').reverse().join('-')
+const MeterDataDisplayer = ({ meterTime, meterDate, energyType, label } : { meterTime: string, meterDate: string, energyType: string, label: string }) => (
       
-      return (
-            <div className="meters-data-div green">
-   
-                  <h2>{label}</h2> 
+      <div className="meters-data-div green">
+            <h2>{label}</h2> 
                   {label === "Gaz" ? 
                         <img id="gas"  src={gaz} alt="Logo Gaz" width="40px"/>
                         :
@@ -18,7 +16,6 @@ const MeterDataDisplayer = ({ meterTime, meterDate, energyType, label } : { mete
                   <div><strong>Date de création</strong> : {reverseDate(meterDate)}</div>
                   <div><strong>Heure de création</strong> : {meterTime}</div>
             </div>
-            )
-}
+      )
 
 export default MeterDataDisplayer;

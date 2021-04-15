@@ -1,0 +1,1 @@
+export const reverseDate = (string: string): string => string.split('-').reverse().join('-')

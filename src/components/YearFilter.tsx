@@ -7,7 +7,7 @@ const YearFilter = ({filterValue, setFilterValue}
             setFilterValue(e.target.value);
       }
 
-      return(
+      return (
             <div className="custom-select" >
                   <select className="select-selected" value={filterValue} onChange={handleChange}>
                         <option value="0">Toute la consommation</option>
