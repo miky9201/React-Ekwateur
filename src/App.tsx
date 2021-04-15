@@ -56,20 +56,18 @@ function App() {
             <section className="app-container">
                   <h1>Bonjour, Voici votre consommation : </h1>
                   <EnergyToggleButton showClickedEnergy={showClickedEnergy} setShowClickedEnergy={setShowClickedEnergy}/>
-                  <div className="meters-data-container">
-                        {
-                              showClickedEnergy ?
-                                    <EnergyContainer>
-                                          <MeterDataDisplayer meterTime={electricityTime} meterDate={electricityDate} energyType={electricityPod} label="Electricité" />
-                                          <EnergyConsumption energyType={"electricity"} energyId={ELECTRICITY_ID} /> 
-                                    </EnergyContainer>
-                                    :
-                                    <EnergyContainer>
-                                          <MeterDataDisplayer meterTime={gasTime} meterDate={gasDate} energyType={gasPod} label="Gaz" />
-                                          <EnergyConsumption energyType={"gas"} energyId={GAS_ID}/>
-                                    </EnergyContainer>
-                        }
-                  </div>
+                  {
+                        showClickedEnergy ?
+                              <EnergyContainer>
+                                    <MeterDataDisplayer meterTime={electricityTime} meterDate={electricityDate} energyType={electricityPod} label="Electricité" />
+                                    <EnergyConsumption energyType={"electricity"} energyId={ELECTRICITY_ID} /> 
+                              </EnergyContainer>
+                              :
+                              <EnergyContainer>
+                                    <MeterDataDisplayer meterTime={gasTime} meterDate={gasDate} energyType={gasPod} label="Gaz" />
+                                    <EnergyConsumption energyType={"gas"} energyId={GAS_ID}/>
+                              </EnergyContainer>
+                  }
             </section>
       )
 }

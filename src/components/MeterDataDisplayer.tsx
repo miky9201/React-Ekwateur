@@ -12,9 +12,9 @@ const MeterDataDisplayer = ({ meterTime, meterDate, energyType, label } : { mete
                         :
                         <img id="electricity" src={electricite} alt="Logo Electricité" width="40px"/>
                   }
-                  <p>POD : {energyType}</p>
-                  <p>Date de création : {meterDate}</p>
-                  <p>Heure de création : {meterTime}</p>
+                  <div>POD : {energyType}</div>
+                  <div>Date de création : {meterDate}</div>
+                  <div>Heure de création : {meterTime}</div>
             </div>
             )
 }

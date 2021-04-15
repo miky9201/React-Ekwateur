@@ -12,8 +12,6 @@ const YearFilter = ({filterValue, setFilterValue}
 
       return(
             <div>
-                  <label htmlFor="year-select">Filtrer par année</label>
-
                   <select value={filterValue} onChange={handleChange}>
                         <option value="0">Toute la consommation</option>
                         <option value="2019">2019</option>
