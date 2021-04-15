@@ -37,23 +37,17 @@ function App() {
       return (
             <section className="app-container">
                   <img id="logo"  src={logo} alt="logo"/>
-                  {
-                        showClickedEnergy ?
-                              <EnergyContainer>
-                                    <MeterDataDisplayer meterTime={electricityTime} meterDate={electricityDate} energyType={electricityPod} label="Electricité" />
-                                    <EnergyConsumption energyType={"electricity"} energyId={ELECTRICITY_ID} /> 
-                              </EnergyContainer>
-                              :
-                              <EnergyContainer>
-                                    <MeterDataDisplayer meterTime={gasTime} meterDate={gasDate} energyType={gasPod} label="Gaz" />
-                                    <EnergyConsumption energyType={"gas"} energyId={GAS_ID}/>
-                              </EnergyContainer>
-                  }
+                  <EnergyContainer>
+                        <MeterDataDisplayer 
+                        meterTime={showClickedEnergy? electricityTime : gasTime} 
+                        meterDate={showClickedEnergy? electricityDate : gasDate} 
+                        energyType={showClickedEnergy? electricityPod : gasPod} 
+                        label={showClickedEnergy? "Electricité" : "Gaz"} />
+                        <EnergyConsumption energyType={showClickedEnergy? "electricity" : "gas"} energyId={showClickedEnergy? ELECTRICITY_ID : GAS_ID} /> 
+                  </EnergyContainer>
                   <EnergyToggleButton showClickedEnergy={showClickedEnergy} setShowClickedEnergy={setShowClickedEnergy}/>
             </section>
       )
 }
-
-
 
 export default App;
