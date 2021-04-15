@@ -5,7 +5,7 @@ const EnergyToggleButton = ({ showClickedEnergy, setShowClickedEnergy }
       
       return (
             <button onClick={() => setShowClickedEnergy(!showClickedEnergy)}>
-                  {!showClickedEnergy ? 'Gaz' :  'Electricité'}
+                  {!showClickedEnergy ? 'Voir Consommation Électrique' :  'Voir Consommation de Gaz'}
             </button> 
       )
 }

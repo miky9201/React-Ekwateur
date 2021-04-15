@@ -65,20 +65,32 @@ const EnergyConsumption = ({ energyType, energyId } : { energyType: string, ener
                   <YearFilter filterValue={filterValue} setFilterValue={setFilterValue}/>
                   {energyId === 1 ? // Est ce que l'on est sur la page gaz ?
                         filterValue !== "0" ?
-                        filterGasByYear.map( item => <div className="array-line soft-yellow" key={item.id}>Le {item.date}, à {item.time}, vous avez consommé {item.indexHigh} kwH de Gaz</div>)
-                        : gasConsumption.map( item => <div className="array-line soft-yellow" key={item.id}>Le {item.date}, à {item.time}, vous avez consommé {item.indexHigh} kwH de Gaz</div>)      
+                        filterGasByYear.map( item => (
+                              <div key={item.id} className="array-line">
+                                    <div className="block-line soft-yellow">{item.date}, à {item.time}</div>
+                                    <div className="block-line soft-yellow">Consommation : {item.indexHigh} kWh</div>
+                              </div>
+                        ))
+                        : gasConsumption.map( item => (
+                              <div key={item.id} className="array-line">
+                                    <div className="block-line soft-yellow">{item.date}, à {item.time}</div>
+                                    <div className="block-line soft-yellow">Consommation : {item.indexHigh} kWh</div>
+                              </div>
+                        ))      
                   : 
                         filterValue !== "0" ?
                         filterElectricityByYear.map( item => (
-                              <div key={item.id} className="array-line soft-yellow">
-                                    Le {item.date}, à {item.time} Conso Heure Creuse :  {item.indexLow} / Conso Heure Pleine : {item.indexHigh}
+                              <div key={item.id} className="array-line">
+                                    <div className="block-line soft-yellow">{item.date}, à {item.time}</div>
+                                    <div className="block-line soft-yellow">Conso Heure Creuse :  {item.indexLow} kWh</div>
+                                    <div className="block-line soft-yellow">Conso Heure Pleine : {item.indexHigh} kWh</div>
                               </div>
                         ))
                         : electricityConsumption.map( item => (
                               <div key={item.id} className="array-line">
                                     <div className="block-line soft-yellow">{item.date}, à {item.time}</div>
-                                    <div className="block-line soft-yellow">Conso Heure Creuse :  {item.indexLow}</div>
-                                    <div className="block-line soft-yellow">Conso Heure Pleine : {item.indexHigh}</div>
+                                    <div className="block-line soft-yellow">Conso Heure Creuse :  {item.indexLow} kWh</div>
+                                    <div className="block-line soft-yellow">Conso Heure Pleine : {item.indexHigh} kWh</div>
                               </div>
                         ))
                   }

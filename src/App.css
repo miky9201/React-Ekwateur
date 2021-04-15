@@ -23,7 +23,13 @@ body {
       width: 50vw;
       max-height: 60vh;
       overflow: auto;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
 }
+
+.energy-container::-webkit-scrollbar {
+      display: none;
+    }
 
 .meters-data-div {
       border-radius: 16px 16px 0px 0px;
@@ -71,7 +77,9 @@ body {
 }
 
 .block-line {
-      padding: 10px, 5px;
+      margin: 5px;
+      padding: 10px, 15px;
+      text-align: center;
 }
 
 /*COLORS */

@@ -54,7 +54,7 @@ function App() {
 
       return (
             <section className="app-container">
-                  <h1>Bonjour, Voici votre consommation : </h1>
+                  <h1>Bonjour, Vous trouverez ci-dessous votre consommation d'énergie</h1>
                   <EnergyToggleButton showClickedEnergy={showClickedEnergy} setShowClickedEnergy={setShowClickedEnergy}/>
                   {
                         showClickedEnergy ?
