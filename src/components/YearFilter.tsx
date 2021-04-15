@@ -4,9 +4,6 @@ const YearFilter = ({filterValue, setFilterValue}
 : {filterValue: string, setFilterValue: React.Dispatch<React.SetStateAction<string>>}) => {
       
       const handleChange = (e: any) => {
-            // console.log(typeof e);
-            // console.log(typeof e.target);
-            // console.log(typeof e.target.value);
             setFilterValue(e.target.value);
       }
 
