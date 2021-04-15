@@ -11,8 +11,8 @@ const YearFilter = ({filterValue, setFilterValue}
       }
 
       return(
-            <div>
-                  <select value={filterValue} onChange={handleChange}>
+            <div className="custom-select" >
+                  <select className="select-selected" value={filterValue} onChange={handleChange}>
                         <option value="0">Toute la consommation</option>
                         <option value="2019">2019</option>
                         <option value="2020">2020</option>
