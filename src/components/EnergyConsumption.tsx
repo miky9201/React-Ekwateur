@@ -67,30 +67,48 @@ const EnergyConsumption = ({ energyType, energyId } : { energyType: string, ener
                         filterValue !== "0" ?
                         filterGasByYear.map( item => (
                               <div key={item.id} className="array-line">
-                                    <div className="block-line soft-yellow">{item.date}, à {item.time}</div>
-                                    <div className="block-line soft-yellow">Consommation : {item.indexHigh} kWh</div>
+                                    <div className="block-line">Le {item.date} à {item.time}</div>
+                                    <div className="block-line">
+                                          <div>Consommation</div>  
+                                          <div>{item.indexHigh} kWh</div>
+                                    </div>
                               </div>
                         ))
                         : gasConsumption.map( item => (
                               <div key={item.id} className="array-line">
-                                    <div className="block-line soft-yellow">{item.date}, à {item.time}</div>
-                                    <div className="block-line soft-yellow">Consommation : {item.indexHigh} kWh</div>
+                                    <div className="block-line">Le {item.date} à {item.time}</div>
+                                    <div className="block-line">
+                                          <div>Consommation</div>  
+                                          <div>{item.indexHigh} kWh</div>
+                                    </div>
                               </div>
                         ))      
                   : 
                         filterValue !== "0" ?
                         filterElectricityByYear.map( item => (
                               <div key={item.id} className="array-line">
-                                    <div className="block-line soft-yellow">{item.date}, à {item.time}</div>
-                                    <div className="block-line soft-yellow">Conso Heure Creuse :  {item.indexLow} kWh</div>
-                                    <div className="block-line soft-yellow">Conso Heure Pleine : {item.indexHigh} kWh</div>
+                                    <div className="block-line">Le {item.date} à {item.time}</div>
+                                    <div className="block-line">
+                                          <div>Conso Heure Creuse</div> 
+                                          <div> {item.indexLow} kWh</div>
+                                    </div>
+                                    <div className="block-line">
+                                          <div>Conso Heure Pleine</div>  
+                                          <div>{item.indexHigh} kWh</div>
+                                    </div>
                               </div>
                         ))
                         : electricityConsumption.map( item => (
                               <div key={item.id} className="array-line">
-                                    <div className="block-line soft-yellow">{item.date}, à {item.time}</div>
-                                    <div className="block-line soft-yellow">Conso Heure Creuse :  {item.indexLow} kWh</div>
-                                    <div className="block-line soft-yellow">Conso Heure Pleine : {item.indexHigh} kWh</div>
+                                    <div className="block-line">Le {item.date} à {item.time}</div>
+                                    <div className="block-line">
+                                          <div>Conso Heure Creuse</div> 
+                                          <div> {item.indexLow} kWh</div>
+                                    </div>
+                                    <div className="block-line">
+                                          <div>Conso Heure Pleine</div>  
+                                          <div>{item.indexHigh} kWh</div>
+                                    </div>
                               </div>
                         ))
                   }

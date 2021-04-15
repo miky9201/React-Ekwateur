@@ -7,6 +7,10 @@ body {
       font-family: Avenir;
 }
 
+h1 {
+      text-align: center;
+}
+
 .app-container {
       background-image: url('./images/background.jpg');
       display: flex;
@@ -66,6 +70,7 @@ body {
 }
 
 .array-line {
+      background-color: #fff5e6;
       border-radius: 16px;
       width: 90%;
       padding: 10px;
@@ -77,8 +82,10 @@ body {
 }
 
 .block-line {
-      margin: 5px;
-      padding: 10px, 15px;
+      color:  #e68d00;
+      border-radius: 16px;
+      margin: 2px;
+      padding: 10px;
       text-align: center;
 }
 
