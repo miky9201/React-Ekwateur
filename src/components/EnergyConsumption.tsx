@@ -26,20 +26,22 @@ const EnergyConsumption = ({ energyType, energyId } : { energyType: string, ener
             async function getEnergyConsumption() {
                   const response = await fetch(`https://5e9ed3cdfb467500166c47bb.mockapi.io/api/v1/meter/${energyId}/${energyType}`);
                   const data = await response.json();
-                  const emptyArr: any[] = []
+
+                  const emptyArr: any[] = [];
+                  const reverseDate = (string: string): string => string.split('-').reverse().join('-') // Pour inverser le format de la date
 
                   for (let index = 0; index < data.length; index++) {
                         if (energyId === 1) {
                               emptyArr.push({
                                     id: data[index].id,
-                                    date: data[index].createdAt.substr(0, 10), // isoler la date dans la string fournie
+                                    date: reverseDate(data[index].createdAt.substr(0, 10)), // isoler la date dans la string fournie
                                     time: data[index].createdAt.substr(11, 8), //isoler l'heure dans la string fournie
                                     indexHigh: data[index].indexHigh
                               })
                         } else {
                               emptyArr.push({
                                     id: data[index].id,
-                                    date: data[index].createdAt.substr(0, 10), // isoler la date dans la string fournie
+                                    date: reverseDate(data[index].createdAt.substr(0, 10)), // isoler la date dans la string fournie
                                     time: data[index].createdAt.substr(11, 8), //isoler l'heure dans la string fournie
                                     indexHigh: data[index].indexHigh,
                                     indexLow: data[index].indexLow
@@ -57,8 +59,8 @@ const EnergyConsumption = ({ energyType, energyId } : { energyType: string, ener
 
       }, [energyId, energyType])
 
-      const filterGasByYear = gasConsumption.filter(item => (item.date.substr(0, 4) === filterValue))
-      const filterElectricityByYear = electricityConsumption.filter(item => (item.date.substr(0, 4) === filterValue))
+      const filterGasByYear = gasConsumption.filter(item => (item.date.substr(6, 4) === filterValue))
+      const filterElectricityByYear = electricityConsumption.filter(item => (item.date.substr(6, 4) === filterValue))
 
       return (
             <div className="energy-data-div white">
@@ -67,7 +69,10 @@ const EnergyConsumption = ({ energyType, energyId } : { energyType: string, ener
                         filterValue !== "0" ?
                         filterGasByYear.map( item => (
                               <div key={item.id} className="array-line">
-                                    <div className="block-line">Le {item.date} à {item.time}</div>
+                                    {parseInt(item.date.substr(3, 2)) < 12 &&  parseInt(item.date.substr(0, 2)) < 31 ? 
+                                          <div className="block-line">Le {item.date} à {item.time}</div> 
+                                          : <div className="block-line">La date {item.date} n'est pas au bon format !</div>
+                                    }
                                     <div className="block-line">
                                           <div>Consommation</div>  
                                           <div>{item.indexHigh} kWh</div>
@@ -76,7 +81,10 @@ const EnergyConsumption = ({ energyType, energyId } : { energyType: string, ener
                         ))
                         : gasConsumption.map( item => (
                               <div key={item.id} className="array-line">
-                                    <div className="block-line">Le {item.date} à {item.time}</div>
+                                    {parseInt(item.date.substr(3, 2)) < 12 &&  parseInt(item.date.substr(0, 2)) < 31 ? 
+                                          <div className="block-line">Le {item.date} à {item.time}</div> 
+                                          : <div className="block-line">{item.date} n'est pas au bon format !</div>
+                                    }
                                     <div className="block-line">
                                           <div>Consommation</div>  
                                           <div>{item.indexHigh} kWh</div>
@@ -87,7 +95,10 @@ const EnergyConsumption = ({ energyType, energyId } : { energyType: string, ener
                         filterValue !== "0" ?
                         filterElectricityByYear.map( item => (
                               <div key={item.id} className="array-line">
-                                    <div className="block-line">Le {item.date} à {item.time}</div>
+                                    {parseInt(item.date.substr(3, 2)) < 12 &&  parseInt(item.date.substr(0, 2)) < 31 ? 
+                                          <div className="block-line">Le {item.date} à {item.time}</div> 
+                                          : <div className="block-line">La date {item.date} n'est pas au bon format !</div>
+                                    }
                                     <div className="block-line">
                                           <div>Conso Heure Creuse</div> 
                                           <div> {item.indexLow} kWh</div>
@@ -100,7 +111,10 @@ const EnergyConsumption = ({ energyType, energyId } : { energyType: string, ener
                         ))
                         : electricityConsumption.map( item => (
                               <div key={item.id} className="array-line">
-                                    <div className="block-line">Le {item.date} à {item.time}</div>
+                                    {parseInt(item.date.substr(3, 2)) < 12 &&  parseInt(item.date.substr(0, 2)) < 31 ? 
+                                          <div className="block-line">Le {item.date} à {item.time}</div> 
+                                          : <div className="block-line">La date {item.date} n'est pas au bon format !</div>
+                                    }
                                     <div className="block-line">
                                           <div>Conso Heure Creuse</div> 
                                           <div> {item.indexLow} kWh</div>

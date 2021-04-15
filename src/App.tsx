@@ -4,6 +4,7 @@ import MeterDataDisplayer from './components/MeterDataDisplayer';
 import EnergyConsumption from './components/EnergyConsumption';
 import EnergyContainer from './components/EnergyContainer';
 import EnergyToggleButton from './components/EnergyToggleButton';
+import logo from './images/logo.svg'
 
 
 function App() {
@@ -54,8 +55,7 @@ function App() {
 
       return (
             <section className="app-container">
-                  <h1>Bonjour, Vous trouverez ci-dessous votre consommation d'énergie</h1>
-                  <EnergyToggleButton showClickedEnergy={showClickedEnergy} setShowClickedEnergy={setShowClickedEnergy}/>
+                  <img id="logo"  src={logo} alt="logo"/>
                   {
                         showClickedEnergy ?
                               <EnergyContainer>
@@ -68,6 +68,7 @@ function App() {
                                     <EnergyConsumption energyType={"gas"} energyId={GAS_ID}/>
                               </EnergyContainer>
                   }
+                  <EnergyToggleButton showClickedEnergy={showClickedEnergy} setShowClickedEnergy={setShowClickedEnergy}/>
             </section>
       )
 }
