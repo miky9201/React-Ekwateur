@@ -38,12 +38,12 @@ const EnergyConsumption = ({ energyType, energyId } : { energyType: string, ener
                   <YearFilter filterValue={filterValue} setFilterValue={setFilterValue}/>
                   {energyId === 1 ? // Est ce que l'on est sur la page gaz ?
                         filterValue !== "0" ? 
-                        filterGasByYear.map( item => <GasDataLine item={item} />)
-                        : gasConsumption.map( item => <GasDataLine item={item} />)
+                              filterGasByYear.map( item => <GasDataLine item={item} />)
+                              : gasConsumption.map( item => <GasDataLine item={item} />)
                   : 
                         filterValue !== "0" ? 
-                        filterElectricityByYear.map( item => <ElectricityDataLine item={item} />)
-                        : electricityConsumption.map( item => <ElectricityDataLine item={item} />)
+                              filterElectricityByYear.map( item => <ElectricityDataLine item={item} />)
+                              : electricityConsumption.map( item => <ElectricityDataLine item={item} />)
                   }
             </div>
       )
