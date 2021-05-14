@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/React-Ekwateur/static/css/main.dff79fb2.chunk.css",
+    "main.js": "/React-Ekwateur/static/js/main.b5dad750.chunk.js",
+    "main.js.map": "/React-Ekwateur/static/js/main.b5dad750.chunk.js.map",
+    "runtime-main.js": "/React-Ekwateur/static/js/runtime-main.23eccca1.js",
+    "runtime-main.js.map": "/React-Ekwateur/static/js/runtime-main.23eccca1.js.map",
+    "static/js/2.0227ec34.chunk.js": "/React-Ekwateur/static/js/2.0227ec34.chunk.js",
+    "static/js/2.0227ec34.chunk.js.map": "/React-Ekwateur/static/js/2.0227ec34.chunk.js.map",
+    "index.html": "/React-Ekwateur/index.html",
+    "precache-manifest.f33dfff82f665bcad1ad3973b3c87001.js": "/React-Ekwateur/precache-manifest.f33dfff82f665bcad1ad3973b3c87001.js",
+    "service-worker.js": "/React-Ekwateur/service-worker.js",
+    "static/css/main.dff79fb2.chunk.css.map": "/React-Ekwateur/static/css/main.dff79fb2.chunk.css.map",
+    "static/js/2.0227ec34.chunk.js.LICENSE.txt": "/React-Ekwateur/static/js/2.0227ec34.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/React-Ekwateur/static/media/background.ff1e6889.jpg",
+    "static/media/electricite.png": "/React-Ekwateur/static/media/electricite.7de442ff.png",
+    "static/media/gaz.png": "/React-Ekwateur/static/media/gaz.8d489ca6.png",
+    "static/media/logo.svg": "/React-Ekwateur/static/media/logo.d5df1da4.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.23eccca1.js",
+    "static/js/2.0227ec34.chunk.js",
+    "static/css/main.dff79fb2.chunk.css",
+    "static/js/main.b5dad750.chunk.js"
+  ]
+}
